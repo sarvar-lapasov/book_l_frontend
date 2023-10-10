@@ -99,9 +99,9 @@ export default {
     },
     state: {
         token: localStorage.getItem("token"),
-        user: localStorage.getItem("userr") ?
-            JSON.parse(localStorage.getItem("userr")) :
-            "",
+        user: localStorage.getItem("userr")
+            ? JSON.parse(localStorage.getItem("userr"))
+            : "",
     },
     getters: {
         getToken(state) {

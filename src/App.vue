@@ -29,7 +29,11 @@ export default {
         FooterRow,
         HeaderRow,
     },
-    watch: {},
+    watch: {
+        "$route.name"() {
+            window.scrollTo(0, 0);
+        },
+    },
 };
 </script>
 

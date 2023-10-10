@@ -28,7 +28,11 @@ export default {
                         context.commit("updateBooks", books);
                         resolve();
                     })
-                    .catch(() => {
+                    .catch((error) => {
+                        console.log("What happened? " + error);
+                        console.log("What happened? " + error.response.data);
+                        console.log("What happened? " + error.response);
+
                         console.log("kitoblar olishda xatolik");
                         reject();
                     });
