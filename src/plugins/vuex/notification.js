@@ -19,6 +19,7 @@ export default {
                             read: response.data.data.read.data,
                             totalItems: response.data.data.read.total,
                             unread: response.data.data.unread,
+                            lastPage: response.data.data.read.last_page,
                         };
                         context.commit("updateNotifications", notifications);
                         resolve();
@@ -69,6 +70,10 @@ export default {
                 "notifications",
                 JSON.stringify(notifications.read)
             );
+            localStorage.setItem(
+                "lastpage",
+                JSON.stringify(notifications.lastPage)
+            );
         },
     },
     state: {
@@ -76,6 +81,7 @@ export default {
             read: "",
             unread: "",
             totalItems: "",
+            lastPage: "",
         },
     },
     getters: {
@@ -87,6 +93,9 @@ export default {
         },
         getNotifyTotal(state) {
             return state.notifications.totalItems;
+        },
+        getLastPage(state) {
+            return state.notifications.lastPage;
         },
     },
 };

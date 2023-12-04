@@ -91,7 +91,11 @@ export default {
         editPost(context, { id, data }) {
             return new Promise((resolve, reject) => {
                 axios
-                    .put("/posts/" + id, data)
+                    .put("/posts/" + id, data,{
+                        headers: {
+                            "Content-Type": "multipart/form-data",
+                        },
+                    })
                     .then((response) => {
                         console.log(" post o'zgartirildi");
                         console.log(response.data);

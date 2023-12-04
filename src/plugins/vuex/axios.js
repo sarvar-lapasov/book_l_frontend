@@ -7,12 +7,12 @@ axios.defaults.headers["Access-Control-Allow-Origin"] = "*";
 axios.defaultswithCredentials = true;
 
 axios.interceptors.request.use((config) => {
-    if (config.url !== "https://master-books.000webhostapp.com/api/login") {
+    if (config.url !== "http://localhost:8000/api/login") {
         config.headers.Authorization = "Bearer " + store.getters.getToken;
     }
     return config;
 });
 
-axios.defaults.baseURL = "https://master-books.000webhostapp.com/api";
+axios.defaults.baseURL = "http://localhost:8000/api";
 
 export default axios;

@@ -1,18 +1,18 @@
 <template>
-        <paginate
-            class="pagination justify-content-center fs-1 fs-sm-5"
-            v-if="All > 6"
-            v-model="page"
-            :page-count="Math.ceil(All / 6)"
-            :page-range="3"
-            :margin-pages="2"
-            :click-handler="clickCallback"
-            :prev-text="'Prev'"
-            :next-text="'Next'"
-            :container-class="'pagination'"
-            :page-class="'page-item'"
-        >
-        </paginate>
+    <paginate
+        class="pagination justify-content-center fs-1 fs-sm-5"
+        v-if="All > 6"
+        v-model="page"
+        :page-count="Math.ceil(All / 6)"
+        :page-range="3"
+        :margin-pages="2"
+        :click-handler="clickCallback"
+        :prev-text="'Prev'"
+        :next-text="'Next'"
+        :container-class="'pagination'"
+        :page-class="'page-item'"
+    >
+    </paginate>
 </template>
 
 <script>
@@ -31,6 +31,10 @@ export default {
             type: Number,
             required: true,
         },
+        LastPage: {
+            type: Number,
+            required: true,
+        },
     },
     components: {
         paginate: Paginate,
@@ -39,13 +43,16 @@ export default {
         ...mapGetters([]),
     },
     methods: {
-        ...mapActions(["fetchBooks", "fetchPosts"]),
+        ...mapActions([]),
         clickCallback(pageNum) {
             this.$emit("pageClick", pageNum);
         },
     },
     watch: {
-        'All'() {
+        'page'() {
+            window.scrollTo(0, 0);
+        },
+        'LastPage'() {
             return (this.page = 1);
         },
     },
@@ -61,6 +68,4 @@ export default {
 .page-link {
     color: #23a036 !important;
 }
-
-
 </style>

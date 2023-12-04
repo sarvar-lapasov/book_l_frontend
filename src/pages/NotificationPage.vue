@@ -130,7 +130,14 @@
                         </router-link>
                     </h5>
                 </div>
-                <div class="d-flex justify-content-between mt-4">
+                <div
+                    :class="
+                        notification.read_at !== null
+                            ? 'justify-content-end'
+                            : 'justify-content-between'
+                    "
+                    class="d-flex mt-4"
+                >
                     <button
                         v-if="notification.read_at === null"
                         @click="readNotifyById(notification.id)"
@@ -140,7 +147,7 @@
                     </button>
                     <button
                         @click="deleteNotifyById(notification.id)"
-                        class="btn-btn w-100 text-end cursor-pointer"
+                        class="btn-btn text-end cursor-pointer"
                         type="submit"
                     >
                         <svg class="btn-icon delete-btn">
@@ -151,7 +158,7 @@
             </div>
         </div>
     </div>
-    <PaginationRow :All="getNotifyTotal" @pageClick="pageClick" />
+    <PaginationRow :All="getNotifyTotal" :LastPage="getLastPage" @pageClick="pageClick" />
     <svg width="0" height="0" class="hidden">
         <symbol
             fill="none"
@@ -177,7 +184,9 @@ export default {
         PaginationRow,
     },
     data() {
-        return {};
+        return {
+            currentPage: "",
+        };
     },
 
     computed: {
@@ -186,6 +195,7 @@ export default {
             "getUnReadNotifications",
             "getNotifyTotal",
             "getBook",
+            "getLastPage",
         ]),
     },
     methods: {
@@ -195,6 +205,7 @@ export default {
             "deleteNotification",
         ]),
         pageClick(item) {
+            this.currentPage = item;
             this.fetchNotifications({
                 page: item,
             })
@@ -211,8 +222,14 @@ export default {
                     console.log(response);
                 })
                 .then(() => {
-                    this.fetchNotifications({page:this.$route.params});
-                    this.$router.push("/notification");
+                    this.fetchNotifications({
+                        page:
+                            this.getNotifications.length > 1
+                                ? this.currentPage
+                                : 1,
+                    });
+                    console.log(this.currentPage - 1);
+                    console.log(this.getNotifications.length);
                 })
                 .catch((error) => {
                     console.log(error);
@@ -225,8 +242,7 @@ export default {
                     console.log(response);
                 })
                 .then(() => {
-                    this.fetchNotifications({});
-                    this.$router.push("/notification");
+                    this.fetchNotifications({ page: this.currentPage });
                 })
                 .catch((error) => {
                     console.log(error);
@@ -236,7 +252,7 @@ export default {
     },
     watch: {},
     mounted() {
-        this.fetchNotifications({});
+        this.fetchNotifications({ page: this.currentPage });
         console.log("notify component yuklandi");
         console.log(this.getNotifications);
     },
