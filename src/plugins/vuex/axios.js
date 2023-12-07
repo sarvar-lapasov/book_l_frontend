@@ -7,12 +7,12 @@ axios.defaults.headers["Access-Control-Allow-Origin"] = "*";
 axios.defaultswithCredentials = true;
 
 axios.interceptors.request.use((config) => {
-    if (config.url !== "http://localhost:8000/api/login") {
+    if (config.url !== "http://books.wuaze.com/api/login") {
         config.headers.Authorization = "Bearer " + store.getters.getToken;
     }
     return config;
 });
 
-axios.defaults.baseURL = "http://localhost:8000/api";
+axios.defaults.baseURL = "http://books.wuaze.com/api";
 
 export default axios;
