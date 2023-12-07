@@ -4,7 +4,6 @@
             v-if="post"
             class="col-lg-4 col-md-6 col-8 mb-4"
             @submit.prevent="edit"
-            enctype="multipart/form-data"
         >
             <div class="mb-3">
                 <label for="postTitle" class="form-label">Title</label>
