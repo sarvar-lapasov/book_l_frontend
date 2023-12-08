@@ -7,7 +7,7 @@
                 style="min-height: 200px"
             >
                 <i class="fa fa-3x fa-map-marker-alt text-secondary mr-4"></i>
-                <div class="text-lg-start text-md-center">
+                <div class="text-lg-start text-center">
                     <h5 class="mb-2">Our Office</h5>
                     <p class="m-0">123 Street, New York, USA</p>
                 </div>
@@ -19,7 +19,7 @@
                 style="min-height: 200px"
             >
                 <i class="fa fa-3x fa-envelope-open text-white mr-4"></i>
-                <div class="text-lg-start text-md-center">
+                <div class="text-lg-start text-center">
                     <h5 class="mb-2 text-dark">Email Us</h5>
                     <p class="m-0 text-white">info@example.com</p>
                 </div>
@@ -31,7 +31,7 @@
                 style="min-height: 200px"
             >
                 <i class="fa fa-3x fa-phone-alt text-secondary mr-4"></i>
-                <div class="text-lg-start text-md-center">
+                <div class="text-lg-start text-center">
                     <h5 class="mb-2">Call Us</h5>
                     <p class="m-0">+012 345 6789</p>
                 </div>
