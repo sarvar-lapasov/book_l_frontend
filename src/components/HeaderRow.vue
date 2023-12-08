@@ -32,14 +32,14 @@
                         >Home</router-link
                     >
                 </li>
-                <li class="nav-item">
+<!--                <li class="nav-item">
                     <router-link
                         :active-class="'active'"
                         to="/about"
                         class="nav-item nav-link fw-medium text-secondary"
                         >About</router-link
                     >
-                </li>
+                </li>-->
                 <li class="nav-item">
                     <router-link
                         :active-class="'active'"
