@@ -40,14 +40,14 @@
                         >About</router-link
                     >
                 </li>-->
-                <li class="nav-item">
-                    <router-link
-                        :active-class="'active'"
-                        to="/services"
-                        class="nav-item nav-link fw-medium text-secondary"
-                        >Services</router-link
-                    >
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <router-link-->
+<!--                        :active-class="'active'"-->
+<!--                        to="/services"-->
+<!--                        class="nav-item nav-link fw-medium text-secondary"-->
+<!--                        >Services</router-link-->
+<!--                    >-->
+<!--                </li>-->
                 <li class="nav-item">
                     <router-link
                         :active-class="'active'"

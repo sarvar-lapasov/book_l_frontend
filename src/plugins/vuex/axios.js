@@ -4,7 +4,7 @@ import store from "@/plugins/vuex/store";
 axios.defaults.headers.common["Content-Type"] = "application/json";
 axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 axios.defaults.headers["Access-Control-Allow-Origin"] = "*";
-axios.defaultswithCredentials = true;
+axios.defaults.withCredentials = true;
 
 axios.interceptors.request.use((config) => {
     if (config.url !== "https://books.wuaze.com/api/login") {
