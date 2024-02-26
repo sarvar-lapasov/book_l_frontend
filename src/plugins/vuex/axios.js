@@ -7,12 +7,12 @@ axios.defaults.headers["Access-Control-Allow-Origin"] = "*";
 axios.defaults.withCredentials = false;
 
 axios.interceptors.request.use((config) => {
-    if (config.url !== "https://books.wuaze.com/api/login") {
+    if (config.url !== "https://bookapi.sarvarjon.uz/api/login") {
         config.headers.Authorization = "Bearer " + store.getters.getToken;
     }
     return config;
 });
 
-axios.defaults.baseURL = "https://books.wuaze.com/api";
+axios.defaults.baseURL = "https://bookapi.sarvarjon.uz/api";
 
 export default axios;
